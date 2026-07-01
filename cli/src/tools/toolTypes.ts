@@ -27,4 +27,6 @@ export interface ToolDefinition<TParams = any, TResult = unknown> {
   description: string;
   parameters: JsonSchema;
   execute: (params: TParams) => Promise<TResult>;
+  /** Metadata: tool não muta estado (safe em Ask mode). */
+  readOnly?: boolean;
 }

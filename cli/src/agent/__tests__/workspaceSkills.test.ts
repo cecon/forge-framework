@@ -217,9 +217,9 @@ describe("loadWorkspaceSkillsPrompt", () => {
     expect(prompt).toContain("Skills disponíveis");
   });
 
-  it("inclui coluna Origem na tabela", async () => {
+  it("inclui a origem de cada skill", async () => {
     const prompt = await loadWorkspaceSkillsPrompt(tmpDir);
-    expect(prompt).toContain("Origem");
+    expect(prompt).toMatch(/\((built-in|global|workspace|external)\)/);
   });
 
   it("menciona os caminhos de descoberta no cabeçalho", async () => {
